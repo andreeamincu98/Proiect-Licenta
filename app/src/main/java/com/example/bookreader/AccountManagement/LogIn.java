@@ -89,7 +89,7 @@ public class LogIn extends AppCompatActivity {
 //                            FirebaseDatabase.getInstance().getReference("Users").child(FirebaseAuth.getInstance().getCurrentUser().getUid())
 //                                    .setValue(pass);
                             Toast.makeText(LogIn.this,"User logged in successfully",Toast.LENGTH_LONG).show();
-                            Intent intent = new Intent(LogIn.this, ReadingChoice.class);
+                            Intent intent = new Intent(LogIn.this, com.example.bookreader.AppPages.Home.class);
                             intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                             startActivity(intent);
                         }
