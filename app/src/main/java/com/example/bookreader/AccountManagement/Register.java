@@ -1,4 +1,4 @@
-package com.example.bookreader;
+package com.example.bookreader.AccountManagement;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
