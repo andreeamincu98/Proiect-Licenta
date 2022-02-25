@@ -64,7 +64,7 @@ public class LogIn extends AppCompatActivity {
     }
 
     public void openRegister(){
-        Intent intent=new Intent(this, com.example.bookreader.Register.class);
+        Intent intent=new Intent(this, com.example.bookreader.AccountManagement.Register.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
         startActivity(intent);
     }
