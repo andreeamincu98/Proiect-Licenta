@@ -1,5 +1,6 @@
 package com.example.bookreader.AccountManagement;
 
+import com.example.bookreader.R;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;

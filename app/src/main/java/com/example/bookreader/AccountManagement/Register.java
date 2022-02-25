@@ -1,5 +1,6 @@
 package com.example.bookreader.AccountManagement;
 
+import com.example.bookreader.R;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,7 +14,6 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.bookreader.DAO.UserDAO;
 import com.example.bookreader.Entities.User;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
