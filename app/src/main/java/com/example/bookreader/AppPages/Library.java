@@ -1,4 +1,6 @@
 package com.example.bookreader.AppPages;
 
-public class Library {
+import androidx.appcompat.app.AppCompatActivity;
+
+public class Library extends AppCompatActivity {
 }

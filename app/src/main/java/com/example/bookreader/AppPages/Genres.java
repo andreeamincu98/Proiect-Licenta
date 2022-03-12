@@ -1,4 +1,6 @@
 package com.example.bookreader.AppPages;
 
-public class Genres {
+import androidx.appcompat.app.AppCompatActivity;
+
+public class Genres extends AppCompatActivity {
 }

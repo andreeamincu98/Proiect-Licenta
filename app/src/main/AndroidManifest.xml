@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.bookreader">
 
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -9,15 +12,41 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.BookReader">
+
         <activity
-            android:name=".MainActivity"
-            android:exported="true">
+            android:name="com.example.bookreader.AccountManagement.LogIn"
+            android:exported="true"
+            android:theme="@style/Theme.AppCompat.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".MainActivity"/>
+        <activity
+            android:name="com.example.bookreader.AccountManagement.Register"
+            android:theme="@style/Theme.AppCompat.NoActionBar"/>
+        <activity
+            android:name="com.example.bookreader.AccountManagement.ForgotPassword"
+            android:theme="@style/Theme.AppCompat.NoActionBar"/>
+        <activity
+            android:name="com.example.bookreader.AppPages.Home"
+            android:theme="@style/Theme.AppCompat.NoActionBar"/>
+        <activity
+            android:name="com.example.bookreader.AppPages.Genres"
+            android:theme="@style/Theme.AppCompat.NoActionBar"/>
+        <activity
+            android:name="com.example.bookreader.AppPages.Library"
+            android:theme="@style/Theme.AppCompat.NoActionBar"/>
+        <activity
+            android:name="com.example.bookreader.AppPages.MyProfile"
+            android:theme="@style/Theme.AppCompat.NoActionBar"/>
+        <activity
+            android:name="com.example.bookreader.AppPages.Settings"
+            android:theme="@style/Theme.AppCompat.NoActionBar"/>
+
     </application>
 
 </manifest>
