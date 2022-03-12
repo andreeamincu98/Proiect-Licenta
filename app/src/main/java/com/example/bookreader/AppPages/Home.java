@@ -29,7 +29,7 @@ public class Home extends AppCompatActivity {
         setContentView(R.layout.home);
 
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        mainslider= findViewById(R.id.home_first_image_slider);
+        mainslider= (ImageSlider) findViewById(R.id.home_first_image_slider);
         final List<SlideModel> remoteimages=new ArrayList<>();
 
         FirebaseDatabase.getInstance().getReference().child("BookCovers").addListenerForSingleValueEvent(new ValueEventListener() {
@@ -37,8 +37,8 @@ public class Home extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for(DataSnapshot data:dataSnapshot.getChildren()) {
                     remoteimages.add(new SlideModel(data.child("url").getValue().toString(), data.child("title").getValue().toString(), ScaleTypes.FIT));
-                }
-                mainslider.setImageList(remoteimages);
+                 }
+                mainslider.setImageList(remoteimages, ScaleTypes.FIT);
             }
 
             @Override
