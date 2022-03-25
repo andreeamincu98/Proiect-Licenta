@@ -9,7 +9,12 @@
     android:background="@color/white"
     tools:context=".MainActivity">
 
-
+<ScrollView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
     <androidx.cardview.widget.CardView
         android:layout_width="320dp"
         android:layout_height="420dp"
@@ -49,9 +54,125 @@
             android:id="@+id/first_linear_layout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="horizontal"></LinearLayout>
+            android:orientation="horizontal">
+            <ImageButton
+                android:id="@+id/first_pic"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                app:srcCompat="@drawable/book"/>
+            <ImageButton
+                android:id="@+id/second_pic"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                app:srcCompat="@drawable/book2"/>
+            <ImageButton
+                android:id="@+id/third_pic"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                app:srcCompat="@drawable/magazine"/>
 
+            <ImageButton
+                android:id="@+id/forth_pic"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                app:srcCompat="@drawable/icon" />
+            <ImageButton
+                android:id="@+id/fifth_pic"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                app:srcCompat="@drawable/book"/>
+            <ImageButton
+                android:id="@+id/sixth_pic"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                app:srcCompat="@drawable/book2"/>
+            <ImageButton
+                android:id="@+id/seventh_pic"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                app:srcCompat="@drawable/magazine"/>
+        </LinearLayout>
     </HorizontalScrollView>
 
 
+
+    <TextView
+        android:id="@+id/recent_text"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_below="@id/first_horizontal_scrollview"
+        android:paddingTop="10dp"
+        android:text="Recent"
+        android:textSize="25dp"
+        android:textStyle="bold"
+
+        android:textColor="@color/black"
+        tools:ignore="NotSibling"/>
+
+    <HorizontalScrollView
+        android:id="@+id/second_horizontal_scrollview"
+        android:layout_width="wrap_content"
+        android:layout_height="153dp"
+        android:layout_below="@+id/recent_text"
+        tools:ignore="NotSibling">
+
+        <LinearLayout
+            android:id="@+id/second_linear_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+            <ImageButton
+                android:id="@+id/first_pic2"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                app:srcCompat="@drawable/book"/>
+            <ImageButton
+                android:id="@+id/second_pic2"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                app:srcCompat="@drawable/book2"/>
+            <ImageButton
+                android:id="@+id/third_pic2"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                app:srcCompat="@drawable/magazine"/>
+
+            <ImageButton
+                android:id="@+id/forth_pic2"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                app:srcCompat="@drawable/icon" />
+            <ImageButton
+                android:id="@+id/fifth_pic2"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                app:srcCompat="@drawable/book"/>
+            <ImageButton
+                android:id="@+id/sixth_pic2"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                app:srcCompat="@drawable/book2"/>
+            <ImageButton
+                android:id="@+id/seventh_pic2"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                app:srcCompat="@drawable/magazine"/>
+        </LinearLayout>
+    </HorizontalScrollView>
+    </RelativeLayout>
+</ScrollView>
 </RelativeLayout>
