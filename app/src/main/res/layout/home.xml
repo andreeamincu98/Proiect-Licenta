@@ -7,7 +7,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    tools:ignore="ContentDescription">
 
 <ScrollView
     android:layout_width="wrap_content"
@@ -36,8 +37,8 @@
         android:layout_height="30dp"
         android:layout_below="@id/home_first_image_slider"
         android:layout_marginTop="440dp"
-        android:text="Popular"
-        android:textSize="25dp"
+        android:text="@string/Popular"
+        android:textSize="25sp"
         android:textStyle="bold"
 
         android:textColor="@color/black"
@@ -52,7 +53,7 @@
 
         <LinearLayout
             android:id="@+id/first_linear_layout"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:orientation="horizontal">
             <ImageButton
@@ -93,6 +94,7 @@
                 android:layout_marginStart="5dp"
                 app:srcCompat="@drawable/book2"/>
             <ImageButton
+
                 android:id="@+id/seventh_pic"
                 android:layout_width="120dp"
                 android:layout_height="wrap_content"
@@ -109,8 +111,8 @@
         android:layout_height="40dp"
         android:layout_below="@id/first_horizontal_scrollview"
         android:paddingTop="10dp"
-        android:text="Recent"
-        android:textSize="25dp"
+        android:text="@string/Recent"
+        android:textSize="25sp"
         android:textStyle="bold"
 
         android:textColor="@color/black"
@@ -125,7 +127,7 @@
 
         <LinearLayout
             android:id="@+id/second_linear_layout"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:orientation="horizontal">
             <ImageButton
@@ -173,6 +175,79 @@
                 app:srcCompat="@drawable/magazine"/>
         </LinearLayout>
     </HorizontalScrollView>
+        <TextView
+            android:id="@+id/discover_text"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_below="@id/second_horizontal_scrollview"
+            android:paddingTop="10dp"
+            android:text="@string/Discover"
+            android:textSize="25sp"
+            android:textStyle="bold"
+
+            android:textColor="@color/black"
+            tools:ignore="NotSibling"/>
+
+        <HorizontalScrollView
+            android:id="@+id/third_horizontal_scrollview"
+            android:layout_width="wrap_content"
+            android:layout_height="153dp"
+            android:layout_below="@+id/discover_text"
+            tools:ignore="NotSibling">
+
+            <LinearLayout
+                android:id="@+id/third_linear_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+                <ImageButton
+                    android:id="@+id/first_pic3"
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    app:srcCompat="@drawable/book"/>
+                <ImageButton
+                    android:id="@+id/second_pic3"
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    app:srcCompat="@drawable/book2"/>
+                <ImageButton
+                    android:id="@+id/third_pic3"
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    app:srcCompat="@drawable/magazine"/>
+
+                <ImageButton
+                    android:id="@+id/forth_pic3"
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    app:srcCompat="@drawable/icon" />
+                <ImageButton
+                    android:id="@+id/fifth_pic3"
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    app:srcCompat="@drawable/book"/>
+                <ImageButton
+                    android:id="@+id/sixth_pic3"
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    app:srcCompat="@drawable/book2"/>
+                <ImageButton
+                    android:id="@+id/seventh_pic3"
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    app:srcCompat="@drawable/magazine"/>
+            </LinearLayout>
+        </HorizontalScrollView>
+
+
+
     </RelativeLayout>
 </ScrollView>
 </RelativeLayout>
