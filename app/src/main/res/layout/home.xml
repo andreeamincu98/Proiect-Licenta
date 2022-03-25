@@ -6,24 +6,52 @@
     android:padding="20dp"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context=".MainActivity">
 
 
-<androidx.cardview.widget.CardView
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    app:cardCornerRadius="12dp"
-    app:cardUseCompatPadding="true">
+    <androidx.cardview.widget.CardView
+        android:layout_width="320dp"
+        android:layout_height="420dp"
+        android:layout_centerHorizontal="true"
+        app:cardUseCompatPadding="true">
 
-    <com.denzcoskun.imageslider.ImageSlider
-        android:id="@+id/home_first_image_slider"
+        <com.denzcoskun.imageslider.ImageSlider
+            android:id="@+id/home_first_image_slider"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:iss_auto_cycle="true"
+            app:iss_period="1000"
+            app:iss_delay="0"/>
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/popular_text"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_below="@id/home_first_image_slider"
+        android:layout_marginTop="440dp"
+        android:text="Popular"
+        android:textSize="25dp"
+        android:textStyle="bold"
+
+        android:textColor="@color/black"
+        tools:ignore="NotSibling"/>
+
+    <HorizontalScrollView
+        android:id="@+id/first_horizontal_scrollview"
         android:layout_width="wrap_content"
-        android:layout_height="300dp"
-        android:paddingTop="20dp"
-        app:iss_auto_cycle="true"
-        app:iss_period="1000"
-        app:iss_delay="0"/>
-</androidx.cardview.widget.CardView>
+        android:layout_height="153dp"
+        android:layout_marginTop="470dp"
+        tools:ignore="NotSibling">
+
+        <LinearLayout
+            android:id="@+id/first_linear_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"></LinearLayout>
+
+    </HorizontalScrollView>
 
 
 </RelativeLayout>
