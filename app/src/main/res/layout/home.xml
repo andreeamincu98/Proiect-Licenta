@@ -44,64 +44,76 @@
         android:textColor="@color/black"
         tools:ignore="NotSibling"/>
 
-    <HorizontalScrollView
-        android:id="@+id/first_horizontal_scrollview"
-        android:layout_width="wrap_content"
-        android:layout_height="153dp"
-        android:layout_marginTop="470dp"
-        tools:ignore="NotSibling">
-
-        <LinearLayout
-            android:id="@+id/first_linear_layout"
+        <HorizontalScrollView
+            android:id="@+id/first_horizontal_scrollview"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
-            <ImageButton
-                android:id="@+id/first_pic"
-                android:layout_width="120dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="5dp"
-                app:srcCompat="@drawable/book"/>
-            <ImageButton
-                android:id="@+id/second_pic"
-                android:layout_width="120dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="5dp"
-                app:srcCompat="@drawable/book2"/>
-            <ImageButton
-                android:id="@+id/third_pic"
-                android:layout_width="120dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="5dp"
-                app:srcCompat="@drawable/magazine"/>
+            android:layout_height="153dp"
+            android:layout_marginTop="470dp"
+            tools:ignore="NotSibling">
 
-            <ImageButton
-                android:id="@+id/forth_pic"
-                android:layout_width="120dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="5dp"
-                app:srcCompat="@drawable/icon" />
-            <ImageButton
-                android:id="@+id/fifth_pic"
-                android:layout_width="120dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="5dp"
-                app:srcCompat="@drawable/book"/>
-            <ImageButton
-                android:id="@+id/sixth_pic"
-                android:layout_width="120dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="5dp"
-                app:srcCompat="@drawable/book2"/>
-            <ImageButton
+            <LinearLayout
+                android:id="@+id/first_linear_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
 
-                android:id="@+id/seventh_pic"
-                android:layout_width="120dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="5dp"
-                app:srcCompat="@drawable/magazine"/>
-        </LinearLayout>
-    </HorizontalScrollView>
+                <ImageView
+                    android:id="@+id/first_pic"
+                    android:layout_width="120dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="5dp"
+                    android:adjustViewBounds="true"
+                    android:scaleType="fitXY" />
+
+                <ImageView
+                    android:id="@+id/second_pic"
+                    android:layout_width="120dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="5dp"
+                    android:adjustViewBounds="true"
+                    android:scaleType="fitXY" />
+
+                <ImageView
+                    android:id="@+id/third_pic"
+                    android:layout_width="120dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="5dp"
+                    android:adjustViewBounds="true"
+                    android:scaleType="fitXY" />
+
+                <ImageView
+                    android:id="@+id/forth_pic"
+                    android:layout_width="120dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="5dp"
+                    android:adjustViewBounds="true"
+                    android:scaleType="fitXY" />
+
+                <ImageView
+                    android:id="@+id/fifth_pic"
+                    android:layout_width="120dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="5dp"
+                    android:adjustViewBounds="true"
+                    android:scaleType="fitXY" />
+
+                <ImageView
+                    android:id="@+id/sixth_pic"
+                    android:layout_width="120dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="5dp"
+                    android:adjustViewBounds="true"
+                    android:scaleType="fitXY" />
+
+                <ImageView
+                    android:id="@+id/seventh_pic"
+                    android:layout_width="120dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="5dp"
+                    android:adjustViewBounds="true"
+                    android:scaleType="fitXY" />
+            </LinearLayout>
+        </HorizontalScrollView>
 
 
 
@@ -130,49 +142,56 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:orientation="horizontal">
-            <ImageButton
+            <ImageView
                 android:id="@+id/first_pic2"
                 android:layout_width="120dp"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
+                android:scaleType="fitXY"
                 android:layout_marginStart="5dp"
-                app:srcCompat="@drawable/book"/>
-            <ImageButton
+                android:adjustViewBounds="true"/>
+            <ImageView
                 android:id="@+id/second_pic2"
                 android:layout_width="120dp"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
+                android:scaleType="fitXY"
                 android:layout_marginStart="5dp"
-                app:srcCompat="@drawable/book2"/>
-            <ImageButton
+                android:adjustViewBounds="true"/>
+            <ImageView
                 android:id="@+id/third_pic2"
                 android:layout_width="120dp"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
+                android:scaleType="fitXY"
                 android:layout_marginStart="5dp"
-                app:srcCompat="@drawable/magazine"/>
+                android:adjustViewBounds="true"/>
 
-            <ImageButton
+            <ImageView
                 android:id="@+id/forth_pic2"
                 android:layout_width="120dp"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
+                android:scaleType="fitXY"
                 android:layout_marginStart="5dp"
-                app:srcCompat="@drawable/icon" />
-            <ImageButton
+                android:adjustViewBounds="true"/>
+            <ImageView
                 android:id="@+id/fifth_pic2"
                 android:layout_width="120dp"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
+                android:scaleType="fitXY"
                 android:layout_marginStart="5dp"
-                app:srcCompat="@drawable/book"/>
-            <ImageButton
+                android:adjustViewBounds="true"/>
+            <ImageView
                 android:id="@+id/sixth_pic2"
                 android:layout_width="120dp"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
+                android:scaleType="fitXY"
                 android:layout_marginStart="5dp"
-                app:srcCompat="@drawable/book2"/>
-            <ImageButton
+                android:adjustViewBounds="true"/>
+            <ImageView
                 android:id="@+id/seventh_pic2"
                 android:layout_width="120dp"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
+                android:scaleType="fitXY"
                 android:layout_marginStart="5dp"
-                app:srcCompat="@drawable/magazine"/>
+                android:adjustViewBounds="true"/>
         </LinearLayout>
     </HorizontalScrollView>
         <TextView
@@ -200,49 +219,56 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:orientation="horizontal">
-                <ImageButton
+                <ImageView
                     android:id="@+id/first_pic3"
                     android:layout_width="120dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
+                    android:scaleType="fitXY"
                     android:layout_marginStart="5dp"
-                    app:srcCompat="@drawable/book"/>
-                <ImageButton
+                    android:adjustViewBounds="true"/>
+                <ImageView
                     android:id="@+id/second_pic3"
                     android:layout_width="120dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
+                    android:scaleType="fitXY"
                     android:layout_marginStart="5dp"
-                    app:srcCompat="@drawable/book2"/>
-                <ImageButton
+                    android:adjustViewBounds="true"/>
+                <ImageView
                     android:id="@+id/third_pic3"
                     android:layout_width="120dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
+                    android:scaleType="fitXY"
                     android:layout_marginStart="5dp"
-                    app:srcCompat="@drawable/magazine"/>
+                    android:adjustViewBounds="true"/>
 
-                <ImageButton
+                <ImageView
                     android:id="@+id/forth_pic3"
                     android:layout_width="120dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
+                    android:scaleType="fitXY"
                     android:layout_marginStart="5dp"
-                    app:srcCompat="@drawable/icon" />
-                <ImageButton
+                    android:adjustViewBounds="true"/>
+                <ImageView
                     android:id="@+id/fifth_pic3"
                     android:layout_width="120dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
+                    android:scaleType="fitXY"
                     android:layout_marginStart="5dp"
-                    app:srcCompat="@drawable/book"/>
-                <ImageButton
+                    android:adjustViewBounds="true"/>
+                <ImageView
                     android:id="@+id/sixth_pic3"
                     android:layout_width="120dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
+                    android:scaleType="fitXY"
                     android:layout_marginStart="5dp"
-                    app:srcCompat="@drawable/book2"/>
-                <ImageButton
+                    android:adjustViewBounds="true"/>
+                <ImageView
                     android:id="@+id/seventh_pic3"
                     android:layout_width="120dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
+                    android:scaleType="fitXY"
                     android:layout_marginStart="5dp"
-                    app:srcCompat="@drawable/magazine"/>
+                    android:adjustViewBounds="true"/>
             </LinearLayout>
         </HorizontalScrollView>
 
