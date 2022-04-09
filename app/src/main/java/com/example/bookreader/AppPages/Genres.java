@@ -5,13 +5,20 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 
 import com.example.bookreader.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class Genres extends AppCompatActivity {
     @SuppressLint("NonConstantResourceId")
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
+        if(AppCompatDelegate.getDefaultNightMode()==AppCompatDelegate.MODE_NIGHT_YES){
+            setTheme(R.style.Theme_Dark);
+        }else{
+            setTheme(R.style.Theme_Light);
+        }
         super.onCreate(savedInstanceState);
         setContentView(R.layout.genres);
         BottomNavigationView navigationView = findViewById(R.id.genres_bottom_navigation);

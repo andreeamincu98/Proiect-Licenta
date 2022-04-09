@@ -7,8 +7,8 @@
     android:orientation="vertical"
     android:paddingTop="20dp"
     android:paddingHorizontal="20dp"
-    android:background="?attr/background_color">
-
+    android:background="?attr/background_color"
+    tools:context=".MainActivity">
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/library_bottom_navigation"
         android:layout_width="match_parent"
@@ -22,4 +22,13 @@
         app:itemIconSize="30dp"
         app:labelVisibilityMode="unlabeled"
         app:itemIconTint="@drawable/item_selector"/>
+    <TextView
+        android:id="@+id/library_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/library_text"
+        android:textSize="30sp"
+        android:textColor="?attr/text_color"/>
+
+
 </RelativeLayout>
