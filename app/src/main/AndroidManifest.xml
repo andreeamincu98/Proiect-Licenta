@@ -42,7 +42,7 @@
             android:name="com.example.bookreader.AppPages.Library"
             android:theme="@style/Theme.AppCompat.NoActionBar"/>
         <activity
-            android:name="com.example.bookreader.AppPages.MyProfile"
+            android:name="com.example.bookreader.AppPages.Profile"
             android:theme="@style/Theme.AppCompat.NoActionBar"/>
         <activity
             android:name="com.example.bookreader.AppPages.Settings"

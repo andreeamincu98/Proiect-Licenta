@@ -6,9 +6,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.bookreader.R;
 
-public class Genres extends AppCompatActivity {
+public class Profile extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.genres);
+        setContentView(R.layout.profile);
     }
 }
