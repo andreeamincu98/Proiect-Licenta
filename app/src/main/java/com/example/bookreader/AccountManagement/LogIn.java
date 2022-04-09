@@ -121,24 +121,24 @@ public class LogIn extends AppCompatActivity {
                     if(task.isSuccessful()){
                         FirebaseUser user= FirebaseAuth.getInstance().getCurrentUser();
                         if(user.isEmailVerified()){
-                            Toast.makeText(LogIn.this,"User logged in successfully",Toast.LENGTH_LONG).show();
+                            Toast.makeText(LogIn.this,"User logged in successfully",Toast.LENGTH_SHORT).show();
                             Intent intent = new Intent(LogIn.this, com.example.bookreader.AppPages.Home.class);
                             intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                             startActivity(intent);
                         }
                         if(!user.isEmailVerified()){
                             user.sendEmailVerification();
-                            Toast.makeText(LogIn.this,"Check your email to verify your account!",Toast.LENGTH_LONG).show();
+                            Toast.makeText(LogIn.this,"Check your email to verify your account!",Toast.LENGTH_SHORT).show();
                         }
                     }
                     else{
-                        Toast.makeText(LogIn.this,"Account doesn't exist or credentials do not match",Toast.LENGTH_LONG).show();
+                        Toast.makeText(LogIn.this,"Account doesn't exist or credentials do not match",Toast.LENGTH_SHORT).show();
                     }
                 }
             });
         }
         if(em.equals("") || pass.equals("")){
-            Toast.makeText(LogIn.this,"You must fill all credentials",Toast.LENGTH_LONG).show();
+            Toast.makeText(LogIn.this,"You must fill all credentials",Toast.LENGTH_SHORT).show();
         }
     }
 

@@ -84,14 +84,14 @@ public class Register extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                            User user = new User(uname,em,pass);
+                            User user = new User(uname,em);
                             FirebaseDatabase.getInstance().getReference("Users").child(FirebaseAuth.getInstance().getCurrentUser().getUid())
                                     .setValue(user).addOnCompleteListener(new OnCompleteListener<Void>() {
                                 @Override
                                 public void onComplete(@NonNull Task<Void> task) {
                                     if(task.isSuccessful())
                                     {
-                                        Toast.makeText(Register.this, "User registered successfully", Toast.LENGTH_LONG).show();
+                                        Toast.makeText(Register.this, "User registered successfully", Toast.LENGTH_SHORT).show();
                                         Intent intent = new Intent(Register.this, LogIn.class);
                                         intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                                         startActivity(intent);
@@ -104,9 +104,9 @@ public class Register extends AppCompatActivity {
 
             }
             if(!pass.equals(cpass))
-                Toast.makeText(Register.this, "The passwords do not match", Toast.LENGTH_LONG).show();
+                Toast.makeText(Register.this, "The passwords do not match", Toast.LENGTH_SHORT).show();
         }
         if(uname.equals("") || em.equals("") || pass.equals("") || cpass.equals(""))
-            Toast.makeText(Register.this,"You must fill all credentials",Toast.LENGTH_LONG).show();
+            Toast.makeText(Register.this,"You must fill all credentials",Toast.LENGTH_SHORT).show();
     }
 }
