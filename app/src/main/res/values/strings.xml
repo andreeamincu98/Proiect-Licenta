@@ -3,4 +3,9 @@
     <string name="Popular">Popular</string>
     <string name="Recent">Recent</string>
     <string name="Discover">Discover</string>
+    <string name="home_text">Home</string>
+    <string name="genres_text">Genres</string>
+    <string name="library_text">Library</string>
+    <string name="profile_text">Profile</string>
+    <string name="settings_text">Settings</string>
 </resources>

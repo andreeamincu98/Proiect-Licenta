@@ -3,19 +3,35 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
-    android:padding="20dp"
+    android:paddingTop="20dp"
+    android:paddingHorizontal="20dp"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
     tools:context=".MainActivity"
     tools:ignore="ContentDescription">
 
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/home_bottom_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="30dp"
+        android:elevation="2dp"
+        app:menu="@menu/item_menu"
+        android:background="@drawable/round_corners"
+        app:itemRippleColor="@android:color/transparent"
+        app:itemIconSize="30dp"
+        app:labelVisibilityMode="unlabeled"
+        app:itemIconTint="@drawable/item_selector"/>
+
 <ScrollView
     android:layout_width="wrap_content"
     android:layout_height="wrap_content">
     <RelativeLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:paddingBottom="90dp">
     <androidx.cardview.widget.CardView
         android:layout_width="320dp"
         android:layout_height="420dp"
@@ -194,6 +210,7 @@
                 android:adjustViewBounds="true"/>
         </LinearLayout>
     </HorizontalScrollView>
+
         <TextView
             android:id="@+id/discover_text"
             android:layout_width="match_parent"
@@ -272,8 +289,11 @@
             </LinearLayout>
         </HorizontalScrollView>
 
-
-
     </RelativeLayout>
+
 </ScrollView>
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="90dp">
+    </View>
 </RelativeLayout>
