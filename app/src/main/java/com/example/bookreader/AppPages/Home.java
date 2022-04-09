@@ -1,25 +1,22 @@
 package com.example.bookreader.AppPages;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.MenuItem;
 import android.view.WindowManager;
 import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
-import androidx.fragment.app.Fragment;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.denzcoskun.imageslider.ImageSlider;
 import com.denzcoskun.imageslider.constants.ScaleTypes;
 import com.denzcoskun.imageslider.models.SlideModel;
-import com.example.bookreader.MainActivity;
 import com.example.bookreader.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.android.material.navigation.NavigationBarView;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
@@ -34,6 +31,7 @@ public class Home extends AppCompatActivity {
     BottomNavigationView navigationView;
     ImageSlider mainslider;
 
+    @SuppressLint("NonConstantResourceId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         if(AppCompatDelegate.getDefaultNightMode()==AppCompatDelegate.MODE_NIGHT_YES){
@@ -79,7 +77,7 @@ public class Home extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for(DataSnapshot data:dataSnapshot.getChildren()) {
-                    remoteimages.add(new SlideModel(data.child("url").getValue().toString(), data.child("title").getValue().toString(), ScaleTypes.FIT));
+                    remoteimages.add(new SlideModel(Objects.requireNonNull(data.child("url").getValue()).toString(), Objects.requireNonNull(data.child("title").getValue()).toString(), ScaleTypes.FIT));
                  }
                 mainslider.setImageList(remoteimages, ScaleTypes.FIT);
             }
@@ -229,38 +227,35 @@ public class Home extends AppCompatActivity {
         });
 
         navigationView=findViewById(R.id.home_bottom_navigation);
-        navigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                Intent intent=new Intent(Home.this, com.example.bookreader.AppPages.Home.class);
-                switch (item.getItemId()){
+        navigationView.setOnItemSelectedListener(item -> {
+            Intent intent;
+            switch (item.getItemId()){
 
-                    case R.id.nav_home:
-                        break;
-                    case R.id.nav_genres:
-                        intent=new Intent(Home.this, com.example.bookreader.AppPages.Genres.class);
-                        intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
-                        startActivity(intent);
-                        break;
-                    case R.id.nav_library:
-                        intent=new Intent(Home.this, com.example.bookreader.AppPages.Library.class);
-                        intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
-                        startActivity(intent);
-                        break;
-                    case R.id.nav_profile:
-                        intent=new Intent(Home.this, com.example.bookreader.AppPages.Profile.class);
-                        intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
-                        startActivity(intent);
-                        break;
-                    case R.id.nav_settings:
-                        intent=new Intent(Home.this, com.example.bookreader.AppPages.Settings.class);
-                        intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
-                        startActivity(intent);
-                        break;
+                case R.id.nav_home:
+                    break;
+                case R.id.nav_genres:
+                    intent=new Intent(Home.this, Genres.class);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+                    startActivity(intent);
+                    break;
+                case R.id.nav_library:
+                    intent=new Intent(Home.this, Library.class);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+                    startActivity(intent);
+                    break;
+                case R.id.nav_profile:
+                    intent=new Intent(Home.this, Profile.class);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+                    startActivity(intent);
+                    break;
+                case R.id.nav_settings:
+                    intent=new Intent(Home.this, Settings.class);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+                    startActivity(intent);
+                    break;
 
-                }
-                return true;
             }
+            return true;
         });
 
     }
