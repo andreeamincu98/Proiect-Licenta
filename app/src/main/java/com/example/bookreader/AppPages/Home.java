@@ -8,6 +8,7 @@ import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 import androidx.fragment.app.Fragment;
 
 import com.bumptech.glide.Glide;
@@ -35,6 +36,13 @@ public class Home extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        if(AppCompatDelegate.getDefaultNightMode()==AppCompatDelegate.MODE_NIGHT_YES){
+            setTheme(R.style.Theme_Dark);
+        }else{
+            setTheme(R.style.Theme_Light);
+        }
+
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.home);
 
@@ -65,6 +73,7 @@ public class Home extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         mainslider= (ImageSlider) findViewById(R.id.home_first_image_slider);
         final List<SlideModel> remoteimages=new ArrayList<>();
+
 
         FirebaseDatabase.getInstance().getReference().child("BookCovers").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override

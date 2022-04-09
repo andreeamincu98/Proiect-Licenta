@@ -10,6 +10,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 
 import com.example.bookreader.AccountManagement.LogIn;
 import com.example.bookreader.Entities.User;
@@ -31,6 +32,12 @@ public class Profile extends AppCompatActivity {
     private FirebaseAuth mFirebaseAuth;
 
     protected void onCreate(Bundle savedInstanceState) {
+        if(AppCompatDelegate.getDefaultNightMode()==AppCompatDelegate.MODE_NIGHT_YES){
+            setTheme(R.style.Theme_Dark);
+        }else{
+            setTheme(R.style.Theme_Light);
+        }
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.profile);
         TextView helloUser;
@@ -65,7 +72,7 @@ public class Profile extends AppCompatActivity {
         });
 
 
-        navigationView=findViewById(R.id.home_bottom_navigation);
+        navigationView=findViewById(R.id.profile_bottom_navigation);
         navigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
