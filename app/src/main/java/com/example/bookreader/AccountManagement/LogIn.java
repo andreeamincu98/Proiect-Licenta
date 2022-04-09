@@ -50,11 +50,13 @@ public class LogIn extends AppCompatActivity {
         SharedPreferences.Editor editor=sharedPreferences.edit();
         String saveEmail=sharedPreferences.getString("svEmail","");
         String savePassword=sharedPreferences.getString("svPassword","");
+
         if(sharedPreferences.contains("checked") && sharedPreferences.getBoolean("checked",false)==true){
             rememberMe.setChecked(true);
         }else{
             rememberMe.setChecked(false);
         }
+
         email.setText(saveEmail);
         password.setText(savePassword);
 
@@ -91,7 +93,6 @@ public class LogIn extends AppCompatActivity {
 
 
         });
-
 
     }
 

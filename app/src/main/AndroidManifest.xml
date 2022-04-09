@@ -25,7 +25,8 @@
         </activity>
 
         <activity
-            android:name=".MainActivity"/>
+            android:name=".MainActivity"
+            android:noHistory="true"/>
         <activity
             android:name="com.example.bookreader.AccountManagement.Register"
             android:theme="@style/Theme.AppCompat.NoActionBar"/>

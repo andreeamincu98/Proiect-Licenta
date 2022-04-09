@@ -223,11 +223,10 @@ public class Home extends AppCompatActivity {
         navigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                Intent intent=new Intent(Home.this, com.example.bookreader.AppPages.Home.class);
                 switch (item.getItemId()){
+
                     case R.id.nav_home:
-                        Intent intent=new Intent(Home.this, com.example.bookreader.AppPages.Home.class);
-                        intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
-                        startActivity(intent);
                         break;
                     case R.id.nav_genres:
                         intent=new Intent(Home.this, com.example.bookreader.AppPages.Genres.class);
