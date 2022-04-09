@@ -1,14 +1,19 @@
 package com.example.bookreader.AccountManagement;
 
 import com.example.bookreader.R;
+
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -24,11 +29,14 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class LogIn extends AppCompatActivity {
 
+    private static final String FILE_EMAIL="rememberMe";
     private Button signUpButton;
     private Button signInButton;
     private TextView forgotPassword;
     private CheckBox rememberMe;
+    private EditText email,password;
     FirebaseAuth mAuth;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,6 +44,20 @@ public class LogIn extends AppCompatActivity {
         rememberMe=findViewById(R.id.remember_me);
         mAuth=FirebaseAuth.getInstance();
         signUpButton= findViewById(R.id.sign_up);
+        email=(EditText)findViewById(R.id.login_email_input);
+        password =(EditText)findViewById(R.id.login_password_input);
+        SharedPreferences sharedPreferences=getSharedPreferences(FILE_EMAIL,MODE_PRIVATE);
+        SharedPreferences.Editor editor=sharedPreferences.edit();
+        String saveEmail=sharedPreferences.getString("svEmail","");
+        String savePassword=sharedPreferences.getString("svPassword","");
+        if(sharedPreferences.contains("checked") && sharedPreferences.getBoolean("checked",false)==true){
+            rememberMe.setChecked(true);
+        }else{
+            rememberMe.setChecked(false);
+        }
+        email.setText(saveEmail);
+        password.setText(savePassword);
+
         signUpButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -47,12 +69,20 @@ public class LogIn extends AppCompatActivity {
         signInButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                loginUser();
-
+                if(rememberMe.isChecked()){
+                    editor.putBoolean("checked",true);
+                    editor.apply();
+                    StoreDataUsingSharedPref(email,password);
+                    loginUser();
+                }
+                else {
+                    getSharedPreferences(FILE_EMAIL,MODE_PRIVATE).edit().clear().commit();
+                    loginUser();
+                }
             }
         });
 
-        forgotPassword = findViewById(R.id.forgot_password_link);
+       forgotPassword = findViewById(R.id.forgot_password_link);
         forgotPassword.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -65,6 +95,13 @@ public class LogIn extends AppCompatActivity {
 
     }
 
+    private void StoreDataUsingSharedPref(EditText email, EditText password) {
+        SharedPreferences.Editor editor=getSharedPreferences(FILE_EMAIL,MODE_PRIVATE).edit();
+        editor.putString("svEmail", email.getText().toString());
+        editor.putString("svPassword", password.getText().toString());
+        editor.apply();
+    }
+
     public void openRegister(){
         Intent intent=new Intent(this, com.example.bookreader.AccountManagement.Register.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
@@ -73,13 +110,9 @@ public class LogIn extends AppCompatActivity {
 
 
     public void loginUser(){
-        EditText email,password;
-        email=(EditText)findViewById(R.id.login_email_input);
-        password =(EditText)findViewById(R.id.login_password_input);
         String em, pass;
         em=email.getText().toString().trim();
         pass=password.getText().toString().trim();
-
         if(!em.equals("") && !pass.equals("")){
             mAuth.signInWithEmailAndPassword(em,pass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                 @Override
@@ -87,9 +120,6 @@ public class LogIn extends AppCompatActivity {
                     if(task.isSuccessful()){
                         FirebaseUser user= FirebaseAuth.getInstance().getCurrentUser();
                         if(user.isEmailVerified()){
-
-//                            FirebaseDatabase.getInstance().getReference("Users").child(FirebaseAuth.getInstance().getCurrentUser().getUid())
-//                                    .setValue(pass);
                             Toast.makeText(LogIn.this,"User logged in successfully",Toast.LENGTH_LONG).show();
                             Intent intent = new Intent(LogIn.this, com.example.bookreader.AppPages.Home.class);
                             intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
@@ -110,7 +140,6 @@ public class LogIn extends AppCompatActivity {
             Toast.makeText(LogIn.this,"You must fill all credentials",Toast.LENGTH_LONG).show();
         }
     }
-
 
 
     private void openForgotPassword() {
