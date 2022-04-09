@@ -88,9 +88,6 @@ public class Profile extends AppCompatActivity {
                         startActivity(intent);
                         break;
                     case R.id.nav_profile:
-                        intent=new Intent(Profile.this, com.example.bookreader.AppPages.Profile.class);
-                        intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
-                        startActivity(intent);
                         break;
                     case R.id.nav_settings:
                         intent=new Intent(Profile.this, com.example.bookreader.AppPages.Settings.class);
