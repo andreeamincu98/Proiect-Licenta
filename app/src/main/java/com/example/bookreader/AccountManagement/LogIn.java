@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -26,12 +27,13 @@ public class LogIn extends AppCompatActivity {
     private Button signUpButton;
     private Button signInButton;
     private TextView forgotPassword;
+    private CheckBox rememberMe;
     FirebaseAuth mAuth;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login);
-
+        rememberMe=findViewById(R.id.remember_me);
         mAuth=FirebaseAuth.getInstance();
         signUpButton= findViewById(R.id.sign_up);
         signUpButton.setOnClickListener(new View.OnClickListener() {

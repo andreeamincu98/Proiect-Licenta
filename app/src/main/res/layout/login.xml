@@ -50,8 +50,8 @@
         android:layout_below="@id/login_password_input"
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
-        android:textColor="@color/white"
-        android:text="Remember Me" />
+        android:text="Remember Me"
+        android:textColor="@color/white" />
 
     <TextView
         android:id="@+id/forgot_password_link"
