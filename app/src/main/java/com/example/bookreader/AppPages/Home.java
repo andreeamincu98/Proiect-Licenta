@@ -73,7 +73,7 @@ public class Home extends AppCompatActivity {
         final List<SlideModel> remoteimages=new ArrayList<>();
 
 
-        FirebaseDatabase.getInstance().getReference().child("BookCovers").addListenerForSingleValueEvent(new ValueEventListener() {
+        FirebaseDatabase.getInstance().getReference().child("HomeImageSlideshow").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for(DataSnapshot data:dataSnapshot.getChildren()) {
