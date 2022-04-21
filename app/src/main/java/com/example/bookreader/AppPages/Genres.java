@@ -3,14 +3,24 @@ package com.example.bookreader.AppPages;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.GridView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 
+import com.example.bookreader.Category.CategoryAdapter;
+import com.example.bookreader.Category.CategoryModel;
 import com.example.bookreader.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Genres extends AppCompatActivity {
+
+    private GridView genreView;
+    private List<CategoryModel> genreList=new ArrayList<>();
+
     @SuppressLint("NonConstantResourceId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,6 +31,12 @@ public class Genres extends AppCompatActivity {
         }
         super.onCreate(savedInstanceState);
         setContentView(R.layout.genres);
+        genreView = findViewById(R.id.genres_grid);
+
+        loadGenres();
+        CategoryAdapter adapter=new CategoryAdapter(genreList);
+        genreView.setAdapter(adapter);
+
         BottomNavigationView navigationView = findViewById(R.id.genres_bottom_navigation);
         navigationView.setOnItemSelectedListener(item -> {
             Intent intent;
@@ -53,4 +69,21 @@ public class Genres extends AppCompatActivity {
             return true;
         });
     }
+
+    private void loadGenres(){
+        genreList.clear();
+        genreList.add(new CategoryModel("1","Fantasy"));
+        genreList.add(new CategoryModel("2","Lifestyle"));
+        genreList.add(new CategoryModel("3","Fashion"));
+        genreList.add(new CategoryModel("4","Romance"));
+        genreList.add(new CategoryModel("5","Mystery"));
+        genreList.add(new CategoryModel("6","Historic"));
+        genreList.add(new CategoryModel("7","Sci-Fi"));
+        genreList.add(new CategoryModel("8","Classic"));
+        genreList.add(new CategoryModel("9","Modern"));
+        genreList.add(new CategoryModel("10","Horror"));
+        genreList.add(new CategoryModel("11","Young Adult"));
+        genreList.add(new CategoryModel("12","Thriller"));
+    }
+
 }
