@@ -3,6 +3,7 @@ package com.example.bookreader.AppPages;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -11,14 +12,20 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 
+import com.example.bookreader.Entities.User;
 import com.example.bookreader.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.database.snapshot.ChildKey;
+
+import java.util.ArrayList;
+import java.util.Objects;
 
 
 public class Profile extends AppCompatActivity {
@@ -38,14 +45,20 @@ public class Profile extends AppCompatActivity {
         helloUser=findViewById(R.id.profile_username);
         Button logout = findViewById(R.id.profile_log_out);
         mFirebaseAuth=FirebaseAuth.getInstance();
-
-        FirebaseDatabase.getInstance().getReference().child("Users").addListenerForSingleValueEvent(new ValueEventListener() {
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference().child("Users");
+        reference.addListenerForSingleValueEvent(new ValueEventListener() {
+            @SuppressLint("RestrictedApi")
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
                 assert user != null;
                 String email = user.getEmail();
-                helloUser.setText(email);
+                for(DataSnapshot data:snapshot.getChildren()) {
+                    if(Objects.requireNonNull(data.child("email").getValue()).toString().equals(email)){
+                        helloUser.setText(Objects.requireNonNull(data.child("username").getValue()).toString());
+                    }
+                }
+
             }
             @Override
             public void onCancelled(@NonNull DatabaseError error) {

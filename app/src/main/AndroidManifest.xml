@@ -40,6 +40,9 @@
             android:name="com.example.bookreader.AppPages.Genres"
             android:theme="@style/Theme.AppCompat.NoActionBar"/>
         <activity
+            android:name="com.example.bookreader.AppPages.GenreList"
+            android:theme="@style/Theme.AppCompat.NoActionBar"/>
+        <activity
             android:name="com.example.bookreader.AppPages.Library"
             android:theme="@style/Theme.AppCompat.NoActionBar"/>
         <activity
