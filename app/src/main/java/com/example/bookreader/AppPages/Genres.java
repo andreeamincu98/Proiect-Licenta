@@ -73,53 +73,90 @@ public class Genres extends AppCompatActivity {
         });
 
 
-        genreView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                switch(position) {
-                    case 0:
-                        selectedCategory = "fantasy";
-                        break;
+        genreView.setOnItemClickListener((parent, view, position, id) -> {
+            switch(position) {
+                case 0:
+                    selectedCategory = "fantasy";
+                    Intent intent=new Intent(Genres.this, GenreList.class);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+                    startActivity(intent);
+                    break;
 
-                    case 1:
-                        selectedCategory = "lifestyle";
-                        break;
-                    case 2:
-                        selectedCategory = "fashion";
-                        break;
-                    case 3:
-                        selectedCategory = "romance";
-                        break;
-                    case 4:
-                        selectedCategory = "mystery";
-                        break;
-                    case 5:
-                        selectedCategory = "historic";
-                        break;
-                    case 6:
-                        selectedCategory = "sci-fi";
-                        break;
-                    case 7:
-                        selectedCategory = "classic";
-                        break;
-                    case 8:
-                        selectedCategory = "modern";
-                        break;
-                    case 9:
-                        selectedCategory = "horror";
-                        break;
-                    case 10:
-                        selectedCategory = "young adult";
-                        break;
-                    case 11:
-                        selectedCategory = "thriller";
-                        break;
+                case 1:
+                    selectedCategory = "lifestyle";
+                    intent=new Intent(Genres.this, GenreList.class);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+                    startActivity(intent);
+                    break;
+                case 2:
+                    selectedCategory = "fashion";
+                    intent=new Intent(Genres.this, GenreList.class);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+                    startActivity(intent);
+                    break;
+                case 3:
+                    selectedCategory = "romance";
+                    intent=new Intent(Genres.this, GenreList.class);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+                    startActivity(intent);
+                    break;
+                case 4:
+                    selectedCategory = "mystery";
+                    intent=new Intent(Genres.this, GenreList.class);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+                    startActivity(intent);
+                    break;
+                case 5:
+                    selectedCategory = "historic";
+                    intent=new Intent(Genres.this, GenreList.class);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+                    startActivity(intent);
+                    break;
+                case 6:
+                    selectedCategory = "sci-fi";
+                    intent=new Intent(Genres.this, GenreList.class);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+                    startActivity(intent);
+                    break;
+                case 7:
+                    selectedCategory = "classic";
+                    intent=new Intent(Genres.this, GenreList.class);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+                    startActivity(intent);
+                    break;
+                case 8:
+                    selectedCategory = "modern";
+                    intent=new Intent(Genres.this, GenreList.class);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+                    startActivity(intent);
+                    break;
+                case 9:
+                    selectedCategory = "horror";
+                    intent=new Intent(Genres.this, GenreList.class);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+                    startActivity(intent);
+                    break;
+                case 10:
+                    selectedCategory = "young adult";
+                    intent=new Intent(Genres.this, GenreList.class);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+                    startActivity(intent);
+                    break;
+                case 11:
+                    selectedCategory = "thriller";
+                    intent=new Intent(Genres.this, GenreList.class);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+                    startActivity(intent);
+                    break;
+                case 12:
+                    selectedCategory = "manga";
+                    intent=new Intent(Genres.this, GenreList.class);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+                    startActivity(intent);
+                    break;
 
-                }
-                Intent intent=new Intent(Genres.this, GenreList.class);
-                intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
-                startActivity(intent);
             }
+
         });
 
     }
@@ -138,6 +175,7 @@ public class Genres extends AppCompatActivity {
         genreList.add(new CategoryModel("9","Horror"));
         genreList.add(new CategoryModel("10","Young Adult"));
         genreList.add(new CategoryModel("11","Thriller"));
+        genreList.add(new CategoryModel("12","Manga"));
     }
 
 

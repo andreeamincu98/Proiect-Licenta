@@ -25,9 +25,17 @@ public class Settings extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.settings);
+
         switchCompat=findViewById(R.id.settings_switch_day_night_mode);
         SharedPreferences sharedPreferences=getSharedPreferences("save",MODE_PRIVATE);
-        switchCompat.setChecked(sharedPreferences.getBoolean("value",true));
+
+        if(AppCompatDelegate.getDefaultNightMode()==AppCompatDelegate.MODE_NIGHT_YES){
+            switchCompat.setChecked(sharedPreferences.getBoolean("value",true));
+        }else{
+            switchCompat.setChecked(sharedPreferences.getBoolean("value",false));
+        }
+
+
         switchCompat.setOnClickListener(v -> {
             if(switchCompat.isChecked()){
                 SharedPreferences.Editor editor = getSharedPreferences("save",MODE_PRIVATE).edit();

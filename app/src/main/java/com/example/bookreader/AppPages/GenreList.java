@@ -9,7 +9,11 @@ import android.widget.ListView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
+import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.bookreader.BookList.BookListAdapter;
+import com.example.bookreader.Entities.Books;
 import com.example.bookreader.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.database.ChildEventListener;
@@ -19,49 +23,29 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class GenreList extends AppCompatActivity {
-    private ListView genreList;
-    private ArrayList<String> myArrayList=new ArrayList<>();
     BottomNavigationView navigationView;
-    DatabaseReference mRef;
+    List<Books> list=new ArrayList<>();
+    RecyclerView recyclerView;
+    BookListAdapter adapter;
     @SuppressLint("NonConstantResourceId")
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
+        if(AppCompatDelegate.getDefaultNightMode()==AppCompatDelegate.MODE_NIGHT_YES){
+            setTheme(R.style.Theme_Dark);
+        }else{
+            setTheme(R.style.Theme_Light);
+        }
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.genre_list);
-        genreList=findViewById(R.id.genre_list_document_list);
-        ArrayAdapter<String> myArrayAdapter=new ArrayAdapter<>(this, android.R.layout.simple_list_item_1,myArrayList);
-        genreList.setAdapter(myArrayAdapter);
-        mRef= FirebaseDatabase.getInstance().getReference();
-        mRef.addChildEventListener(new ChildEventListener() {
-            @Override
-            public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-                String value=snapshot.child("Books").getValue(String.class);
-                myArrayList.add(value);
-                myArrayAdapter.notifyDataSetChanged();
-            }
 
-            @Override
-            public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
 
-            }
-
-            @Override
-            public void onChildRemoved(@NonNull DataSnapshot snapshot) {
-
-            }
-
-            @Override
-            public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-
-            }
-        });
+        recyclerView=findViewById(R.id.recycler_books);
+        adapter=new BookListAdapter(list,this);
+        recyclerView.setAdapter(adapter);
 
 
         navigationView=findViewById(R.id.home_bottom_navigation);

@@ -2,6 +2,7 @@ package com.example.bookreader.AppPages;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -19,6 +20,7 @@ public class Library extends AppCompatActivity {
         }else{
             setTheme(R.style.Theme_Light);
         }
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.library);
         BottomNavigationView navigationView = findViewById(R.id.library_bottom_navigation);
