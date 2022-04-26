@@ -34,13 +34,13 @@ public class Home extends AppCompatActivity {
     @SuppressLint("NonConstantResourceId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        if(AppCompatDelegate.getDefaultNightMode()==AppCompatDelegate.MODE_NIGHT_YES){
+        if(AppCompatDelegate.getDefaultNightMode()==AppCompatDelegate.MODE_NIGHT_YES ){
             setTheme(R.style.Theme_Dark);
         }else{
             setTheme(R.style.Theme_Light);
         }
 
-
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.home);
 
@@ -68,7 +68,7 @@ public class Home extends AppCompatActivity {
         fifthPicture3=findViewById(R.id.fifth_pic3);
         sixthPicture3=findViewById(R.id.sixth_pic3);
         seventhPicture3=findViewById(R.id.seventh_pic3);
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
         mainslider= (ImageSlider) findViewById(R.id.home_first_image_slider);
         final List<SlideModel> remoteimages=new ArrayList<>();
 

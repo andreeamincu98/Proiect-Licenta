@@ -1,6 +1,7 @@
 package com.example.bookreader.BookList;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +11,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions;
 import com.example.bookreader.Entities.Books;
 import com.example.bookreader.R;
 
@@ -36,6 +39,7 @@ public class BookListAdapter extends RecyclerView.Adapter<BookListAdapter.BooksH
         Books books= list.get(position);
 
         holder.title.setText(books.getTitle());
+        Glide.with(activity).load(books.getCover()).transition(DrawableTransitionOptions.withCrossFade()).into(holder.cover);
     }
 
     @Override

@@ -3,8 +3,7 @@ package com.example.bookreader.AppPages;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.AdapterView;
+import android.view.WindowManager;
 import android.widget.GridView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -32,6 +31,7 @@ public class Genres extends AppCompatActivity {
         }else{
             setTheme(R.style.Theme_Light);
         }
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.genres);
         genreView = findViewById(R.id.genres_grid);

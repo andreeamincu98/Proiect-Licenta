@@ -3,8 +3,7 @@ package com.example.bookreader.AppPages;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
+import android.view.WindowManager;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -16,14 +15,14 @@ import com.example.bookreader.BookList.BookListAdapter;
 import com.example.bookreader.Entities.Books;
 import com.example.bookreader.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
-import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class GenreList extends AppCompatActivity {
     BottomNavigationView navigationView;
@@ -38,10 +37,31 @@ public class GenreList extends AppCompatActivity {
         }else{
             setTheme(R.style.Theme_Light);
         }
-
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.genre_list);
 
+        FirebaseDatabase.getInstance().getReference().child("Books").addValueEventListener(new ValueEventListener() {
+            @SuppressLint("NotifyDataSetChanged")
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for(DataSnapshot data:snapshot.getChildren()){
+                    if(data.child("genre").getValue().toString().equals("fantasy")){
+                        String title = Objects.requireNonNull(data.getKey());
+                        String cover = Objects.requireNonNull(data.child("cover").getValue()).toString();
+                        String url = Objects.requireNonNull(data.child("url").getValue()).toString();
+                        String genre = Objects.requireNonNull(data.child("genre").getValue()).toString();
+                        list.add(new Books(genre, url, title, cover));
+                        adapter.notifyDataSetChanged();
+                    }
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
 
         recyclerView=findViewById(R.id.recycler_books);
         adapter=new BookListAdapter(list,this);
