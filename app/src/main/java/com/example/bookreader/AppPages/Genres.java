@@ -2,7 +2,9 @@ package com.example.bookreader.AppPages;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.WindowManager;
 import android.widget.GridView;
 
@@ -18,10 +20,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Genres extends AppCompatActivity {
-
     private GridView genreView;
     private List<CategoryModel> genreList=new ArrayList<>();
-
+    public static final String SHARED_PREFS=null;
     public String selectedCategory;
     @SuppressLint("NonConstantResourceId")
     @Override
@@ -39,6 +40,9 @@ public class Genres extends AppCompatActivity {
         loadGenres();
         CategoryAdapter adapter=new CategoryAdapter(genreList);
         genreView.setAdapter(adapter);
+        SharedPreferences sharedPreferences=getSharedPreferences(SHARED_PREFS,MODE_PRIVATE);
+
+        SharedPreferences.Editor editor=sharedPreferences.edit();
 
         BottomNavigationView navigationView = findViewById(R.id.genres_bottom_navigation);
         navigationView.setOnItemSelectedListener(item -> {
@@ -73,83 +77,99 @@ public class Genres extends AppCompatActivity {
         });
 
 
+
+
+
         genreView.setOnItemClickListener((parent, view, position, id) -> {
             switch(position) {
                 case 0:
-                    selectedCategory = "fantasy";
+                    editor.putString(SHARED_PREFS,"fantasy");
+                    editor.apply();
                     Intent intent=new Intent(Genres.this, GenreList.class);
                     intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                     startActivity(intent);
                     break;
 
                 case 1:
-                    selectedCategory = "lifestyle";
+                    editor.putString(SHARED_PREFS,"lifestyle");
+                    editor.apply();
                     intent=new Intent(Genres.this, GenreList.class);
                     intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                     startActivity(intent);
                     break;
                 case 2:
-                    selectedCategory = "fashion";
+                    editor.putString(SHARED_PREFS,"fashion");
+                    editor.apply();
                     intent=new Intent(Genres.this, GenreList.class);
                     intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                     startActivity(intent);
                     break;
                 case 3:
-                    selectedCategory = "romance";
+                    editor.putString(SHARED_PREFS,"romance");
+                    editor.apply();
                     intent=new Intent(Genres.this, GenreList.class);
                     intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                     startActivity(intent);
                     break;
                 case 4:
-                    selectedCategory = "mystery";
+                    editor.putString(SHARED_PREFS,"mystery");
+                    editor.apply();
                     intent=new Intent(Genres.this, GenreList.class);
                     intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                     startActivity(intent);
                     break;
                 case 5:
-                    selectedCategory = "historic";
+                    editor.putString(SHARED_PREFS,"historic");
+                    editor.apply();
                     intent=new Intent(Genres.this, GenreList.class);
                     intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                     startActivity(intent);
                     break;
                 case 6:
-                    selectedCategory = "sci-fi";
+                    editor.putString(SHARED_PREFS,"sci-fi");
+                    editor.apply();
                     intent=new Intent(Genres.this, GenreList.class);
                     intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                     startActivity(intent);
                     break;
                 case 7:
-                    selectedCategory = "classic";
+                    editor.putString(SHARED_PREFS,"classic");
+                    editor.apply();
                     intent=new Intent(Genres.this, GenreList.class);
                     intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                     startActivity(intent);
                     break;
                 case 8:
-                    selectedCategory = "modern";
+                    editor.putString(SHARED_PREFS,"modern");
+                    editor.apply();
                     intent=new Intent(Genres.this, GenreList.class);
                     intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                     startActivity(intent);
                     break;
                 case 9:
-                    selectedCategory = "horror";
+                    editor.putString(SHARED_PREFS,"horror");
+                    editor.apply();
                     intent=new Intent(Genres.this, GenreList.class);
                     intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                     startActivity(intent);
                     break;
                 case 10:
-                    selectedCategory = "young adult";
+                    editor.putString(SHARED_PREFS,"young adult");
+                    editor.apply();
                     intent=new Intent(Genres.this, GenreList.class);
                     intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                     startActivity(intent);
                     break;
                 case 11:
-                    selectedCategory = "thriller";
+                    editor.putString(SHARED_PREFS,"thriller");
+                    editor.apply();
                     intent=new Intent(Genres.this, GenreList.class);
                     intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                     startActivity(intent);
                     break;
                 case 12:
-                    selectedCategory = "manga";
+                    editor.putString(SHARED_PREFS,"manga");
+                    editor.apply();
                     intent=new Intent(Genres.this, GenreList.class);
                     intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                     startActivity(intent);

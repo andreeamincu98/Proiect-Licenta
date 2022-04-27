@@ -2,6 +2,7 @@ package com.example.bookreader.AppPages;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.WindowManager;
 
@@ -25,6 +26,7 @@ import java.util.List;
 import java.util.Objects;
 
 public class GenreList extends AppCompatActivity {
+    private static final String SHARED_PREFS = Genres.SHARED_PREFS;
     BottomNavigationView navigationView;
     List<Books> list=new ArrayList<>();
     RecyclerView recyclerView;
@@ -41,12 +43,15 @@ public class GenreList extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.genre_list);
 
+
+        SharedPreferences sharedPreferences=getSharedPreferences(SHARED_PREFS,MODE_PRIVATE);
+        SharedPreferences.Editor editor=sharedPreferences.edit();
         FirebaseDatabase.getInstance().getReference().child("Books").addValueEventListener(new ValueEventListener() {
             @SuppressLint("NotifyDataSetChanged")
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for(DataSnapshot data:snapshot.getChildren()){
-                    if(data.child("genre").getValue().toString().equals("fantasy")){
+                    if(Objects.requireNonNull(data.child("genre").getValue()).toString().equals(sharedPreferences.getString(SHARED_PREFS,""))){
                         String title = Objects.requireNonNull(data.getKey());
                         String cover = Objects.requireNonNull(data.child("cover").getValue()).toString();
                         String url = Objects.requireNonNull(data.child("url").getValue()).toString();
