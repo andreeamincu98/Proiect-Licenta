@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions;
+import com.example.bookreader.AppPages.Document;
 import com.example.bookreader.Entities.Books;
 import com.example.bookreader.R;
 
@@ -40,6 +41,13 @@ public class BookListAdapter extends RecyclerView.Adapter<BookListAdapter.BooksH
 
         holder.title.setText(books.getTitle());
         Glide.with(activity).load(books.getCover()).transition(DrawableTransitionOptions.withCrossFade()).into(holder.cover);
+        holder.itemView.setOnClickListener(v -> {
+            Intent intent=new Intent(activity, Document.class);
+            intent.putExtra("title",books.getTitle());
+            intent.putExtra("url",books.getUrl());
+            intent.putExtra("genre",books.getGenre());
+            activity.startActivity(intent);
+        });
     }
 
     @Override

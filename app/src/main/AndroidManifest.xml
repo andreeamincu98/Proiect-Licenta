@@ -51,6 +51,9 @@
         <activity
             android:name="com.example.bookreader.AppPages.Settings"
             android:theme="@style/Theme.AppCompat.NoActionBar"/>
+        <activity
+            android:name="com.example.bookreader.AppPages.Document"
+            android:theme="@style/Theme.AppCompat.NoActionBar"/>
 
     </application>
 
