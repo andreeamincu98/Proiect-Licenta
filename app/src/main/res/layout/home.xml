@@ -30,8 +30,7 @@
     android:layout_height="wrap_content">
     <RelativeLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:paddingBottom="90dp">
+        android:layout_height="wrap_content">
     <androidx.cardview.widget.CardView
         android:layout_width="320dp"
         android:layout_height="420dp"
@@ -220,7 +219,6 @@
             android:text="@string/Discover"
             android:textSize="25sp"
             android:textStyle="bold"
-
             android:textColor="?attr/text_color"
             tools:ignore="NotSibling"/>
 
@@ -229,7 +227,8 @@
             android:layout_width="wrap_content"
             android:layout_height="153dp"
             android:layout_below="@+id/discover_text"
-            tools:ignore="NotSibling">
+            tools:ignore="NotSibling"
+            android:layout_marginBottom="90dp">
 
             <LinearLayout
                 android:id="@+id/third_linear_layout"
@@ -292,8 +291,5 @@
     </RelativeLayout>
 
 </ScrollView>
-    <View
-        android:layout_width="fill_parent"
-        android:layout_height="90dp">
-    </View>
+
 </RelativeLayout>
