@@ -50,7 +50,7 @@ public class Genres extends AppCompatActivity {
                     break;
                 case R.id.nav_genres:
                     break;
-                case R.id.nav_library:
+                case R.id.nav_search:
                     intent=new Intent(Genres.this, Search.class);
                     intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                     startActivity(intent);

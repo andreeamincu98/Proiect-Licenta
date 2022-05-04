@@ -102,7 +102,7 @@ public class Search extends AppCompatActivity {
                     intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                     startActivity(intent);
                     break;
-                case R.id.nav_library:
+                case R.id.nav_search:
                     break;
                 case R.id.nav_profile:
                     intent=new Intent(Search.this, Profile.class);

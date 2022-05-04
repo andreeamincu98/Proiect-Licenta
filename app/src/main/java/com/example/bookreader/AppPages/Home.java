@@ -238,7 +238,7 @@ public class Home extends AppCompatActivity {
                     intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                     startActivity(intent);
                     break;
-                case R.id.nav_library:
+                case R.id.nav_search:
                     intent=new Intent(Home.this, Search.class);
                     intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                     startActivity(intent);
