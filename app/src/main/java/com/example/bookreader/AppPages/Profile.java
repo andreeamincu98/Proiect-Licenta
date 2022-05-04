@@ -30,7 +30,7 @@ public class Profile extends AppCompatActivity {
 
     @SuppressLint("NonConstantResourceId")
     protected void onCreate(Bundle savedInstanceState) {
-        if(AppCompatDelegate.getDefaultNightMode()==AppCompatDelegate.MODE_NIGHT_YES){
+        if(AppCompatDelegate.getDefaultNightMode()==AppCompatDelegate.MODE_NIGHT_YES || AppCompatDelegate.getDefaultNightMode()== AppCompatDelegate.MODE_NIGHT_AUTO_BATTERY){
             setTheme(R.style.Theme_Dark);
         }else{
             setTheme(R.style.Theme_Light);

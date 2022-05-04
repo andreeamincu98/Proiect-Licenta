@@ -3,8 +3,10 @@ package com.example.bookreader.AppPages;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Html;
 import android.view.WindowManager;
 
+import androidx.annotation.ColorInt;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
@@ -33,7 +35,7 @@ public class Search extends AppCompatActivity {
     @SuppressLint({"NonConstantResourceId", "NotifyDataSetChanged"})
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        if(AppCompatDelegate.getDefaultNightMode()==AppCompatDelegate.MODE_NIGHT_YES){
+        if(AppCompatDelegate.getDefaultNightMode()==AppCompatDelegate.MODE_NIGHT_YES || AppCompatDelegate.getDefaultNightMode()== AppCompatDelegate.MODE_NIGHT_AUTO_BATTERY){
             setTheme(R.style.Theme_Dark);
         }else{
             setTheme(R.style.Theme_Light);
@@ -45,11 +47,9 @@ public class Search extends AppCompatActivity {
         BottomNavigationView navigationView = findViewById(R.id.library_bottom_navigation);
         inputSearch=findViewById(R.id.input_search);
         searchResult=findViewById(R.id.search_results);
-
         adapter=new BookListAdapterSearch(list,this);
         searchResult.setAdapter(adapter);
         adapter.notifyDataSetChanged();
-
         FirebaseDatabase.getInstance().getReference().child("Books").addValueEventListener(new ValueEventListener() {
             @SuppressLint("NotifyDataSetChanged")
             @Override

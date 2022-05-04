@@ -19,7 +19,7 @@ public class Settings extends AppCompatActivity {
 
     @SuppressLint("NonConstantResourceId")
     protected void onCreate(Bundle savedInstanceState) {
-        if(AppCompatDelegate.getDefaultNightMode()==AppCompatDelegate.MODE_NIGHT_YES){
+        if(AppCompatDelegate.getDefaultNightMode()==AppCompatDelegate.MODE_NIGHT_YES || AppCompatDelegate.getDefaultNightMode()== AppCompatDelegate.MODE_NIGHT_AUTO_BATTERY){
             setTheme(R.style.Theme_Dark);
         }else{
             setTheme(R.style.Theme_Light);
@@ -31,7 +31,7 @@ public class Settings extends AppCompatActivity {
         switchCompat=findViewById(R.id.settings_switch_day_night_mode);
         SharedPreferences sharedPreferences=getSharedPreferences("save",MODE_PRIVATE);
 
-        if(AppCompatDelegate.getDefaultNightMode()==AppCompatDelegate.MODE_NIGHT_YES){
+        if(AppCompatDelegate.getDefaultNightMode()==AppCompatDelegate.MODE_NIGHT_YES || AppCompatDelegate.getDefaultNightMode()== AppCompatDelegate.MODE_NIGHT_AUTO_BATTERY){
             switchCompat.setChecked(sharedPreferences.getBoolean("value",true));
         }else{
             switchCompat.setChecked(sharedPreferences.getBoolean("value",false));
