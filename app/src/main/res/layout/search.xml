@@ -26,10 +26,14 @@
         android:id="@+id/input_search"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="@string/search_document_here"
+        android:hint="Search document here ... "
+        android:tooltipText="Search document here ..."
         android:layout_margin="20dp"
-        android:paddingEnd="10dp"
-        tools:ignore="RtlSymmetry" />
+        android:paddingRight="10dp"
+        android:outlineAmbientShadowColor="@color/light_white"
+        android:outlineSpotShadowColor="@color/light_white"
+        android:theme="@style/AppSearchView"
+        />
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/search_results"
         android:layout_width="match_parent"
