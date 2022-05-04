@@ -22,13 +22,23 @@
         app:itemIconSize="30dp"
         app:labelVisibilityMode="unlabeled"
         app:itemIconTint="@drawable/item_selector"/>
-    <TextView
-        android:id="@+id/library_title"
-        android:layout_width="wrap_content"
+    <androidx.appcompat.widget.SearchView
+        android:id="@+id/input_search"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/library_text"
-        android:textSize="30sp"
-        android:textColor="?attr/text_color"/>
+        android:hint="@string/search_document_here"
+        android:layout_margin="20dp"
+        android:paddingEnd="10dp"
+        tools:ignore="RtlSymmetry" />
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/search_results"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="90dp"
+        android:layout_below="@id/input_search"
+        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+        app:spanCount="2"
+        />
 
 
 </RelativeLayout>

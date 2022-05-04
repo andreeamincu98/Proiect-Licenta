@@ -74,7 +74,7 @@ public class Settings extends AppCompatActivity {
                     startActivity(intent);
                     break;
                 case R.id.nav_library:
-                    intent=new Intent(Settings.this, Library.class);
+                    intent=new Intent(Settings.this, Search.class);
                     intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                     startActivity(intent);
                     break;

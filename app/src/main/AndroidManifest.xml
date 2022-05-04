@@ -43,7 +43,7 @@
             android:name="com.example.bookreader.AppPages.GenreList"
             android:theme="@style/Theme.AppCompat.NoActionBar"/>
         <activity
-            android:name="com.example.bookreader.AppPages.Library"
+            android:name="com.example.bookreader.AppPages.Search"
             android:theme="@style/Theme.AppCompat.NoActionBar"/>
         <activity
             android:name="com.example.bookreader.AppPages.Profile"
