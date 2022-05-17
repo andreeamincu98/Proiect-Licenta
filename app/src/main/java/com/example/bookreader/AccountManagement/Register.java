@@ -79,6 +79,7 @@ public class Register extends AppCompatActivity {
         pass = password.getText().toString().trim();
         cpass = confirmPassword.getText().toString().trim();
         if (!uname.equals("") && !em.equals("") && !pass.equals("") && !cpass.equals("")) {
+
             if (pass.equals(cpass)) {
                 mAuth.createUserWithEmailAndPassword(em, pass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
@@ -96,8 +97,12 @@ public class Register extends AppCompatActivity {
                                         intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                                         startActivity(intent);
                                     }
+
                                 }
                             });
+                        }
+                        else{
+                            Toast.makeText(Register.this, "Account already exists", Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
