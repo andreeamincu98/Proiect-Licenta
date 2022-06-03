@@ -3,6 +3,7 @@ package com.example.bookreader.AppPages;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.WindowManager;
 
@@ -14,12 +15,11 @@ import com.example.bookreader.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class Settings extends AppCompatActivity {
-
     private SwitchCompat switchCompat;
 
     @SuppressLint("NonConstantResourceId")
     protected void onCreate(Bundle savedInstanceState) {
-        if(AppCompatDelegate.getDefaultNightMode()==AppCompatDelegate.MODE_NIGHT_YES || AppCompatDelegate.getDefaultNightMode()== AppCompatDelegate.MODE_NIGHT_AUTO_BATTERY){
+        if(AppCompatDelegate.getDefaultNightMode()==AppCompatDelegate.MODE_NIGHT_YES || AppCompatDelegate.getDefaultNightMode()== AppCompatDelegate.MODE_NIGHT_AUTO_BATTERY ){
             setTheme(R.style.Theme_Dark);
         }else{
             setTheme(R.style.Theme_Light);
@@ -31,7 +31,9 @@ public class Settings extends AppCompatActivity {
         switchCompat=findViewById(R.id.settings_switch_day_night_mode);
         SharedPreferences sharedPreferences=getSharedPreferences("save",MODE_PRIVATE);
 
-        if(AppCompatDelegate.getDefaultNightMode()==AppCompatDelegate.MODE_NIGHT_YES || AppCompatDelegate.getDefaultNightMode()== AppCompatDelegate.MODE_NIGHT_AUTO_BATTERY){
+        Resources.Theme theme=this.getTheme();
+
+        if(AppCompatDelegate.getDefaultNightMode()==AppCompatDelegate.MODE_NIGHT_YES || AppCompatDelegate.getDefaultNightMode()== AppCompatDelegate.MODE_NIGHT_AUTO_BATTERY || theme.equals(R.style.Theme_Dark)){
             switchCompat.setChecked(sharedPreferences.getBoolean("value",true));
         }else{
             switchCompat.setChecked(sharedPreferences.getBoolean("value",false));
@@ -44,7 +46,6 @@ public class Settings extends AppCompatActivity {
                 editor.putBoolean("value",true);
                 editor.apply();
                 switchCompat.setChecked(true);
-
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
                 setTheme(R.style.Theme_Dark);
             }else {
