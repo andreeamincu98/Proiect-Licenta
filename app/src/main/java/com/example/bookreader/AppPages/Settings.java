@@ -31,9 +31,8 @@ public class Settings extends AppCompatActivity {
         switchCompat=findViewById(R.id.settings_switch_day_night_mode);
         SharedPreferences sharedPreferences=getSharedPreferences("save",MODE_PRIVATE);
 
-        Resources.Theme theme=this.getTheme();
 
-        if(AppCompatDelegate.getDefaultNightMode()==AppCompatDelegate.MODE_NIGHT_YES || AppCompatDelegate.getDefaultNightMode()== AppCompatDelegate.MODE_NIGHT_AUTO_BATTERY || theme.equals(R.style.Theme_Dark)){
+        if(AppCompatDelegate.getDefaultNightMode()==AppCompatDelegate.MODE_NIGHT_YES || AppCompatDelegate.getDefaultNightMode()== AppCompatDelegate.MODE_NIGHT_AUTO_BATTERY ){
             switchCompat.setChecked(sharedPreferences.getBoolean("value",true));
         }else{
             switchCompat.setChecked(sharedPreferences.getBoolean("value",false));
